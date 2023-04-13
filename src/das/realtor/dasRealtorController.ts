@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { DasRealtorService } from './das-realtor.service';
+import { DasRealtorRepository } from './das-realtor-repository.service';
 
 @ApiTags('DasRealtor')
 @Controller({
@@ -9,10 +9,10 @@ import { DasRealtorService } from './das-realtor.service';
   version: '1',
 })
 export class DasRealtorController {
-  constructor(private service: DasRealtorService) {}
+  constructor(private realtorRepository: DasRealtorRepository) {}
 
   @Get()
-  appInfo() {
-    return this.service.appInfo();
+  async appInfo() {
+    return await this.realtorRepository.appInfo();
   }
 }

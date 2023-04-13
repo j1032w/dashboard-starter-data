@@ -28,12 +28,6 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'error',
     'no-empty': 'off',
     'no-multiple-empty-lines': ['error', { 'max': 10, 'maxEOF': 10, 'maxBOF': 10 }],
-    'prettier/prettier': [
-      'error',
-      {
-
-        'endOfLine': 'auto'
-      }
-    ]
+    'prettier/prettier': ['error', { 'endOfLine': 'cr' }]
   }
 };
