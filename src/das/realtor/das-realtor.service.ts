@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { Collection, Db } from 'mongodb';
+import { InjectDb } from 'nest-mongodb';
 
 @Injectable()
 export class DasRealtorService {
-  constructor(private configService: ConfigService) {}
+  private readonly collection: Collection;
+
+  constructor(@InjectDb() private readonly db: Db) {
+    this.collection = this.db.collection('realtor');
+  }
 
   appInfo() {
-    return { name: this.configService.get('app.name' + '121abc') };
+    return { name: 'abc' };
+
   }
 }

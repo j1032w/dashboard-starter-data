@@ -1,11 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongoModule } from 'nest-mongodb';
 import { HeaderResolver } from 'nestjs-i18n';
 import { I18nModule } from 'nestjs-i18n/dist/i18n.module';
 import * as path from 'path';
 import appConfig from './config/app.config';
 import { DasRealtorModule } from './das/realtor/dasRealtorModule';
 import { HomeModule } from './home/home.module';
+
+const mongoUri = process.env.MONGO_URI;
+const mongoDbName = process.env.MONGO_DB_NAME;
 
 @Module({
   imports: [
@@ -60,6 +64,9 @@ import { HomeModule } from './home/home.module';
     // AuthAppleModule,
     // ForgotModule,
     // MailModule,
+
+    MongoModule.forRoot(mongoUri, mongoDbName),
+
     DasRealtorModule,
     HomeModule,
   ],

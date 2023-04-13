@@ -3,17 +3,17 @@ module.exports = {
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   root: true,
   env: {
     node: true,
-    jest: true,
+    jest: true
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
@@ -26,5 +26,14 @@ module.exports = {
     'require-await': 'off',
     '@typescript-eslint/require-await': 'error',
     '@typescript-eslint/no-floating-promises': 'error',
-  },
+    'no-empty': 'off',
+    'no-multiple-empty-lines': ['error', { 'max': 10, 'maxEOF': 10, 'maxBOF': 10 }],
+    'prettier/prettier': [
+      'error',
+      {
+
+        'endOfLine': 'auto'
+      }
+    ]
+  }
 };
