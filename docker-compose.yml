@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  das_mongo:
+    image: "mongo:6.0.5"
+    container_name: das_mongodb
+    restart: always
+    volumes:
+        - "./db/data/db-files:/data/db"
+        - "./db/init/:/docker-entrypoint-initdb.d/"
+
+    ports:
+      - "27017:27017"
+
+
+
+  das_data:
+    container_name: das_data
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - .:/usr/src/app
+
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+
+
+

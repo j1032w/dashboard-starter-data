@@ -17,5 +17,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "exclude": ["lib", "node_modules", "**/*.spec.ts"]
 }
