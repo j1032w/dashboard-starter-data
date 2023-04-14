@@ -1,20 +1,14 @@
-FROM node:18.15.0-alpine
+FROM node:18.16.0-alpine3.17
 
 RUN apk add --no-cache bash
 RUN npm i -g @nestjs/cli typescript ts-node
 
-COPY package*.json /tmp/app/
-RUN cd /tmp/app && npm install
 
-COPY . /usr/src/app
-RUN cp -a /tmp/app/node_modules /usr/src/app
-COPY ./wait-for-it.sh /opt/wait-for-it.sh
-COPY ./startup.dev.sh /opt/startup.dev.sh
-#RUN sed -i 's/\r//g' /opt/wait-for-it.sh
-RUN sed -i 's/\r//g' /opt/startup.dev.sh
+WORKDIR /app
+COPY package*.json /app
+RUN npm install
 
-WORKDIR /usr/src/app
-RUN cp env-example .env
+COPY . /app
 RUN npm run build
 
 CMD ["yarn", "nodemon"]

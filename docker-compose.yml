@@ -22,7 +22,20 @@ services:
       dockerfile: Dockerfile
 
     volumes:
-      - .:/usr/src/app
+      - .:/app
+
+    environment:
+      - NODE_ENV="development"
+      - APP_PORT=3000
+      - APP_NAME="Dashboard Starter Data"
+      - API_PREFIX=das-api
+      - APP_FALLBACK_LANGUAGE=en
+      - APP_HEADER_LANGUAGE=x-custom-lang
+      - FRONTEND_DOMAIN=http://localhost:3000
+      - BACKEND_DOMAIN=http://localhost:3000
+      - MONGO_URI=mongodb://das_mongo:27017
+      - MONGO_DB_NAME=das_data
+
 
     ports:
       - "3000:3000"
