@@ -7,6 +7,9 @@ APP_HEADER_LANGUAGE=x-custom-lang
 FRONTEND_DOMAIN=http://localhost:3000
 BACKEND_DOMAIN=http://localhost:3000
 
+MONGO_URI=mongodb://das_mongo:27017
+MONGO_DB_NAME=das_data
+
 DATABASE_TYPE=postgres
 DATABASE_HOST=postgres
 DATABASE_PORT=5432

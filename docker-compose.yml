@@ -16,6 +16,7 @@ services:
   das_data:
     container_name: das_data
     restart: always
+
     build:
       context: .
       dockerfile: Dockerfile

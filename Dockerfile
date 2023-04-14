@@ -17,4 +17,4 @@ WORKDIR /usr/src/app
 RUN cp env-example .env
 RUN npm run build
 
-CMD ["/opt/startup.dev.sh"]
+CMD ["yarn", "nodemon"]
