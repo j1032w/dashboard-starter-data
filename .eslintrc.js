@@ -27,6 +27,9 @@ module.exports = {
     '@typescript-eslint/require-await': 'error',
     '@typescript-eslint/no-floating-promises': 'error',
     'no-empty': 'off',
+
+    // max specifies the maximum number of consecutive empty lines allowed.
+    // maxEOF controls the number of empty lines at the end of the file.
     'no-multiple-empty-lines': ['error', { 'max': 10, 'maxEOF': 10, 'maxBOF': 10 }],
     'prettier/prettier': ['error', { 'endOfLine': 'cr' }]
   }

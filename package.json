@@ -12,6 +12,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
+    "start:nodemon-debug": "nodemon",
     "nodemon": "NODE_ENV=development nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/main.ts",
     "start:prod": "node dist/main",
     "lint": "./node_modules/.bin/eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -20,7 +21,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "env-cmd jest --config ./test/jest-e2e.json",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "clean": "rimraf dist node_modules"
   },
   "dependencies": {
     "@nestjs/common": "9.4.0",
@@ -34,7 +36,7 @@
     "bcryptjs": "2.4.3",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.0",
-    "mongodb": "^4.15.0",
+    "mongodb": "^4.17.2",
     "nest-mongodb": "^6.4.0",
     "reflect-metadata": "0.1.13",
     "rimraf": "4.4.1",
