@@ -6,9 +6,10 @@ RUN npm i -g @nestjs/cli typescript ts-node
 
 WORKDIR /app
 COPY package*.json /app
-RUN npm install
+RUN npm install --legacy-peer-deps
+
 
 COPY . /app
 RUN npm run build
 
-CMD ["yarn", "nodemon"]
+CMD ["nest", "start"]
